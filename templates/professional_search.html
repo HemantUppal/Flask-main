@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<style>
+    body {
+    background-color: #180161;
+    color: white;
+    font-family: sans-serif;
+}
+div {
+    position: fixed;
+    left: 0%;
+    right: 0%;
+}
+a {
+    text-decoration: none;
+}
+.head1 {
+    width: 100vw;
+    height: 7.5vh;
+    font-size: 2vw;
+    background-color: #4f1787;
+    top:0%;
+    padding-top: 15px;
+}
+.head2 {
+    width: 100vw;
+    height: 2.8vh;
+    font-size: 1.2vw;
+    font-weight: bold;
+    background-color: gold;
+    display: flex;
+    justify-content: space-evenly;
+    top:7.5%;
+}
+.main1 {
+    width: 100vw;
+    height: 3vh;
+    font-size: 1.3vw;
+    margin-top: 10px;
+    top:10.3%;
+    padding-left: 40%;
+}
+.main2 {
+    background-color: rgba(240, 248, 255,0.9);
+    width: 80vw;
+    height: 25vh;
+    top:25%;
+    margin-left: 10%;
+    border: 2px solid gold;
+    border-radius: 25px;
+    box-shadow: 0px 0px 32px gold;
+    color: #4f1787;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.65vw;
+    padding: 10px 10px 0px 10px;
+}
+select {
+    height: 100%;
+    width:10%;
+    color: #4f1787;
+    font-size: 1.2vw;
+    border: 2px solid gold;
+    border-radius: 25px;
+    padding-left: 15px;
+    margin-left: 20px;
+}
+select:hover {
+    background-color: #4f1787;
+    color: gold;
+    transition: all 0.25s ease-in-out;
+}
+button {
+    height: 100%;
+    font-size: 1.2vw;
+    border: 2px solid gold;
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 20px;
+    color: #4f1787;
+}
+button:hover {
+    background-color: #4f1787;
+    color: gold;
+    transition: all 0.25s ease-in-out;
+}
+</style>
+<body>
+    <div class="head1">
+        <center>Welcome to Professional Dashboard</center>
+    </div>
+    <div class="head2">
+        <a href="pro_dash1.html" style="color:#4f1787;">HOME</a>
+        <a href="pro_dash2.html" style="color:#4f1787;">SEARCH</a>
+        <a href="pro_dash3.html" style="color:#4f1787;">SUMMARY</a>
+        <a href="#4" style="color:#4f1787;">LOGOUT</a>
+    </div>
+    <div class="main1">
+        SEARCH BY: 
+        <select>
+            <option value="ID">ID</option>
+            <option value="DATE">DATE</option>
+            <option value="RATINGS">RATINGS</option>
+        </select>
+        <button type="button">
+            SEARCH
+        </button>
+    </div>
+    <span style="position: fixed; top: 17.5%; font-size: 2vw;">SEARCHED RESULTS</span>
+    <div class="main2">
+        <span style="height: 100%; position: relative;">
+            ID
+            <ol>
+                <li>415</li>
+                <li>158</li>
+                <li>487</li>
+                <li>678</li>
+            </ol>
+        </span>
+        <span style="height: 100%; position: relative;">
+            CUSTOMER NAME
+            <ul type="none">
+                <li>Kavyaa</li>
+                <li>Hemlata</li>
+                <li>Sakshami</li>
+                <li>Harshita</li>
+            </ul>
+        </span>
+        <span style="height: 100%; position: relative;">
+            CONTACT PHONE
+            <ul type="none">
+                <li>+91 98765 43210</li>
+                <li>+91 98765 43210</li>
+                <li>+91 98765 43210</li>
+                <li>+91 98765 43210</li>
+            </ul>
+        </span>
+        <span style="height: 100%; position: relative;">
+            LOCATION (Pin Code)
+            <ul type="none">
+                <li>123456</li>
+                <li>123456</li>
+                <li>123456</li>
+                <li>123456</li>
+            </ul>
+        </span>
+        <span style="height: 100%; position: relative;">
+            DATE
+            <ul type="none">
+                <li>15/11/2024</li>
+                <li>15/11/2024</li>
+                <li>15/11/2024</li>
+                <li>15/11/2024</li>
+            </ul>
+        </span>
+        <span style="height: 100%; position: relative;">
+            RATINGS
+            <ul type="none">
+                <li>2</li>
+                <li>3</li>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+        </span>
+    </div>
+</body>
+</html>

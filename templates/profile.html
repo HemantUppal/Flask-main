@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav h4 {
+            margin: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        b{
+            color: yellow;
+
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+
+        <h4> Welcome {{user.name}}</h4>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/summary">Summary</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </nav>
+    <h1> View and Edit Profile </h1> 
+
+
+    <h3> Name: {{user.name}} <button> Edit </button>
+        <br><br>
+        Email: {{user.username}}<button> Edit </button>
+        <br><br>
+        Password: {{user.password}}<button> SHOW </button>
+        <br><br>
+        Address:{{user.address}}<button> Edit</button>
+        <br><br>
+        Pincode:{{user.pincode}}<button> Edit</button>
+
+    </h3> 
+
+</body>
+</html>

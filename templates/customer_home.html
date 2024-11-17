@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1em;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #dddddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+</style>
+<body>
+        <a href="/profile" class="button1">{{current_user.name}}</a>
+
+    <ul>
+        <li><a href="#1" class="a1">HOME</a></li>
+        <li><a href="#2" class="a1">SERVICES</a></li>
+        <li><a href="#3" class="a1">SHOPPING</a></li>
+        <li><a href="#5" class="a1">CART</a></li>
+    </ul>
+    <div class="main0">
+        <h1 style="color: white;">
+            WELCOME {{current_user.name}} TO KHHaS SERVICES.
+        </h1>
+    </div>
+    <h3 class="typing">
+        HOW MAY I HELP YOU ?
+    </h3>
+    <br><div class="main1">
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/ZMr5cmf/ac.jpg" alt="ac" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/JCtWM03/bathtub.jpg" alt="bathtub" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/Y3VVqYp/car.jpg" alt="car" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/MNz0RWW/carpet.jpg" alt="carpet" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/8czWvmh/chair.jpg" alt="chair" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/bRYHkN0/chimney.jpg" alt="chimney" border="0" width="80px"></a>
+
+    </div><br>
+    <div class="main1">
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/J3Tfb6G/deep-cleaning.jpg" alt="deep-cleaning" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/mH5t1Dv/electrician.jpg" alt="electrician" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/RgdfxSC/fridge.jpg" alt="fridge" border="0" width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/tx06W62/geyser.jpg" alt="geyser" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/dGmKWtR/kitchen.jpg" alt="kitchen" border="0"width="80px"></a>
+    </div><br>
+    <div class="main1">
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/kXg68dh/microwave.jpg" alt="microwave" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/QFDSmtj/plumber.jpg" alt="plumber" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/DC2MyCV/sanitization.jpg" alt="sanitization" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/RDHZs2H/sofa.jpg" alt="sofa" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/qFbJXcg/washing-machine.jpg" alt="washing-machine" border="0"width="80px"></a>
+        <a href="{{url_for('customer_dashboard')}}"><img src="https://i.ibb.co/Sf2Pt2Y/water-tank.jpg" alt="water-tank" border="0"width="80px"></a>
+    </div>
+
+    <h1 style="text-align:center; color: white;">Service History</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Professional Name</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests%}
+                <tr><td>{{ request.id }}</td>
+                    <td>{{ request.service.name }}</td>
+                    <td>{{ request.service.proname if request.service else 'N/A' }}  </td>
+                    <td>{{ request.service.prophone if request.service else 'N/A' }}</td>
+                    <td>{{ request.service_status }}</td>
+                    <td class="actions">
+                        {% if request.service_status == "requested" %}
+                        <a href="{{ url_for('rating', request_id=request.id, service_id=request.service.id) }}">Close it?</a>
+                        </form>
+                    {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

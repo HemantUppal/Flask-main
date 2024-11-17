@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Admin style.css') }}"> 
+</head>
+<body>
+    <nav>
+        <h4>Welcome to Admin Dashboard</h4>
+        <ul>
+            <li><a href="{{ url_for('admin_dashboard') }}">Home</a></li>
+            <li><a href="{{ url_for('adsearch') }}">Search</a></li> <!-- Link to Search page -->
+            <li><a href="{{ url_for('adsummary') }}">Summary</a></li> <!-- Link to Summary page -->
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>    
+
+    <!-- Services Section -->
+    <div class="main1" id="home">
+        <h2>Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Base Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services%}
+                <tr><td>{{ service.id}}</td>
+                    <td>{{ service.name }}</td>
+                    <td>${{ service.price }}</td>
+                    <td><button>Edit</button> <button>Delete</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        <button onclick="toggleNewServiceForm()">+ New Service</button>
+    </div>
+
+    <div id="new-service-form-container" style="display: none;">
+        <h2>New Service</h2>
+        <form id="new-service-form">
+            <h3>Add New Service</h3>
+            
+            <div class="form-row">
+                <!-- Service Name Field -->
+
+                <div class="form-group1">
+                    <label for="ID">ID:</label>
+                    <input type="text" id="ID" name="ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service-name">Service Name:</label>
+                    <input type="text" id="service-name" name="service-name" required>
+                </div>
+    
+                <!-- Description Field -->
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" required>
+                </div>
+    
+                <!-- Base Price Field -->
+                <div class="form-group1">
+                    <label for="base-price">Base Price:</label>
+                    <input type="text" id="base-price" name="base-price" required>
+                </div>
+            </div>
+            
+            <!-- Submit and Cancel Buttons -->
+            <button type="submit">Add</button>
+            <button type="button" onclick="toggleNewServiceForm()">Cancel</button>
+        </form>
+    </div>
+    
+    <script>
+        // Function to toggle the New Service form
+        function toggleNewServiceForm() {
+            const formContainer = document.getElementById("new-service-form-container");
+            formContainer.style.display = formContainer.style.display === "none" || formContainer.style.display === "" ? "block" : "none";
+        }
+    </script>
+    
+    <!-- Professionals Section -->
+    <div class="main1">
+        <h2>Professionals</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Experience (Years)</th>
+                    <th>Service Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests%}
+                <tr><td>{{ request.service.id}}</td>
+                    <td>{{ request.service.proname }}</td>
+                    <td>${{ request.customer.experience }}</td>
+                    <td>{{ request.service.name }}</td>
+                    <td><button>Approve</button> <button>Reject</button> <button>Delete</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Service Requests Section -->
+    <div class="main1">
+        <h2>Service Requests</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Assigned Professional</th>
+                    <th>Requested Date</th>
+                    <th>Status (Requested/Accepted/Closed)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests%}
+                <tr><td>{{ request.id }}</td>
+                    <td>{{ request.service.proname if request.service else 'N/A' }}  </td>
+                    <td>{{ request.date_of_request if request.service else 'N/A' }}</td>
+                    <td>{{ request.service_status }}</td>
+                    <td class="actions">
+                        {% if request.service_status == "requested" %}
+                        <a href="{{ url_for('rating', request_id=request.id, service_id=request.service.id) }}">Close it?</a>
+                        </form>
+                    {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

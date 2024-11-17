@@ -1,0 +1,323 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #180161;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            background-color: #4f1787;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            /*Position: fixed*/
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav h4 {
+            margin: 10;
+            padding-left: 1%;
+            font-size: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        li {
+            display: inline;
+            width: 200px;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse; /* Removes double borders */
+            margin: 20px 0; /* Space around the table */
+            margin-left: 40px
+        }
+        
+        table th, table td {
+            border: 1px solid #f0f0f0; /* Table cell borders */
+            padding: 12px 15px; /* Padding inside cells to prevent overlap */
+            text-align: left; /* Align text to the left */
+            color: #f0f0f0; /* Text color */
+        }
+        
+        table th {
+            background-color: #4f1787; /* Heading background color */
+            color: #ffffff; /* Heading text color */
+            font-weight: bold;
+            font-size: 16px; /* Font size for header */
+            text-transform: uppercase; /* Optional: makes headers uppercase */
+        }
+        
+        table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1); /* Light background for alternate rows */
+        }
+        
+        table tr:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Row hover effect */
+        }
+        
+        /* Button styling inside table cells */
+        table button {
+            background-color: #4f1787;
+            color: #f0f0f0;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        table button:hover {
+            background-color: #ffce00; /* Button hover effect */
+            color: #222;
+        }
+        
+        a {
+            color: #f0f0f0;
+            text-decoration: none;
+            padding: 5px 15px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        a:hover {
+            color: #222;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Marquee styling */
+        .marquee1 {
+            background-color: #ffe600;
+            padding: 10px;
+            color: #000000;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+        }
+
+        /* Main heading and sections styling */
+        .main0, .main1, .main2, .main3 {
+            text-align: center;
+            align-items: center;
+            margin: 30px 20px;
+        }
+        .main0 h1{
+            font-weight: bold;
+            color: #ffce00;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+        }
+        
+        .main2{
+            font-weight: bold;
+            color: #ffce00;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+            background-color: rgba(40, 46, 86, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 8px px rgba(0, 0, 0, 0.3);
+            width: 1000px;
+            align-self: center;
+            border: 0.5px solid white;
+            cursor: pointer;
+            margin: 20px auto;
+            padding: 0;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Service links styling */
+        .main1 a {
+            display: inline-block;
+            margin: 10px 15px;
+            color: #ffce00;
+            font-weight: bold;
+            text-decoration: none;
+            border: 2px solid transparent;
+            padding: 10px 15px;
+            transition: color 0.3s, border-color 0.3s, transform 0.3s;
+            border-radius: 8px;
+        }
+        .main1 a:hover {
+            color: #fff;
+            border-color: #ffce00;
+            transform: scale(1.05);
+        }
+
+        /* Partner logos styling */
+        .main2 img {
+            width: 150px;
+            margin: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.1s ease;
+        }
+        .main2 img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Why Choose section styling */
+        .main3 h1 {
+            color: #ffce00;
+            font-size: 28px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        .main3 ul {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0;
+            text-align: center;
+            font-size: 18px;
+        }
+        .main3 li {
+            background: linear-gradient(135deg, #180161,#4f1787, #eb3678, #fb773c);
+            color: #f0f0f0;
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 7px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .main3 li:hover {
+            background-color: #555;
+        }
+
+        /* Call-to-Action heading */
+        h2 {
+            text-align: left;
+            font-size: 45px;
+            color: #ffce00;
+            margin-top: 15px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            padding-left: 2%;
+        }
+        
+        #new-service-form {
+            background-color: rgba(40, 46, 86, 0.9);
+            border: 1px solid #4f1787;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 7px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #f0f0f0;
+            max-width: 60%; /* Reduces form width for better fit */
+            align: left;
+            margin-left: 10;
+            margin-right: auto; /* Centers the form */
+        }
+        
+        #new-service-form h3 {
+            color: #ffce00;
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-left: 5%;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 10px;
+            /*max-width: 100px;*/
+            align-items: flex-start; /* Align items to the top */
+            flex-wrap: wrap; /* Allows wrapping to prevent overlap */
+        }
+        
+        .form-group1 {
+            flex: 1; /* Make each item flexible in width */
+            max-width: 80px; /* Sets a minimum width for each field */
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .form-group {
+            flex: 1; /* Make each item flexible in width */
+            max-width: 400px; /* Sets a minimum width for each field */
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        
+        #new-service-form label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        #new-service-form input[type="text"],
+        #new-service-form input[type="number"],
+        #new-service-form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #4f1787;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #222;
+            font-size: 0.9em;
+        }
+        
+        #new-service-form textarea {
+            resize: vertical; /* Allows resizing vertically only */
+            height: 30px; /* Set a fixed height for compactness */
+        }
+        
+        #new-service-form button[type="submit"],
+        #new-service-form button[type="button"] {
+            background-color: #4f1787;
+            color: #f0f0f0;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
+            margin-top: 15px; /* Space buttons below the form */
+        }
+        
+        #new-service-form button[type="submit"]:hover {
+            background-color: #ffce00;
+            color: #222;
+        }
+        
+        #new-service-form button[type="button"]:hover {
+            background-color: #ccc;
+            color: #222;
+        }
+        
+
+        .summary-charts {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .summary-charts div {
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #180161,#4f1787, #eb3678, #fb773c);
+            color: white;
+            padding: 15px;
+            width: 150px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+            
+        
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Dashboard</title>
+    <style>
+        body {
+            background-color: #180161;
+            color: white;
+            font-family: sans-serif;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1em;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #dddddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Today Services Section -->
+    <h2 style="text-align:center;">Today Services</h2>
+
+    <div class="table-container">
+        <table>
+            
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Contact Phone</th>
+                    <th>Location (Pin Code)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in open_request  %}
+                    {% if request.service_status == "requested" or "assigned" %}
+                <tr>
+                    
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.customer.name }}</td>
+                    <td>{{ request.customer.phone }}</td>
+                    <td>{{ request.customer.pincode }}</td>
+                    <td class="actions">
+                        {% if request.service_status == "requested"  %}
+                            <form action="{{ url_for('accept_request', request_id=request.id, service_id=service_id) }}" method="POST">
+                                <button type="submit" class="btn btn-success">Accept</button>
+                            </form>
+                            <form action="{{ url_for('reject_request', request_id=request.id, service_id=service_id) }}" method="POST">
+                                <button type="submit" class="btn btn-danger">Reject</button>
+                            </form>
+                        {% elif request.service_status == "assigned" %}
+                            <form action="{{ url_for('complete_request', request_id=request.id, service_id=service_id) }}" method="POST">
+                                <button type="submit" class="btn btn-primary">Complete</button>
+                            </form>
+                        {% endif %}
+                    </td>
+
+                </tr>
+                {%endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Closed Services Section -->
+    <h2 style="text-align:center;">Closed Services</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Contact Phone</th>
+                    <th>Location (Pin Code)</th>
+                    <th>Date</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in closed_request %}
+                
+                <tr>
+                    
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.customer.name }}</td>
+                    <td>{{ request.customer.phone }}</td>
+                    <td>{{ request.customer.pincode }}</td>
+                    <td>{{ request.date_of_completion }}</td>
+                    <td>{{ request.remarks }}</td>
+                    <td>{{request.service_status}}</td>
+                    
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

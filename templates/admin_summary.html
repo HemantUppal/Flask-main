@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Admin style.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <nav>
+        <h4>Welcome to Admin Dashboard</h4>
+        <ul>
+            <li><a href="{{ url_for('admin_dashboard') }}">Home</a></li>
+            <li><a href="{{ url_for('adsearch') }}">Search</a></li> <!-- Link to Search page -->
+            <li><a href="{{ url_for('adsummary') }}">Summary</a></li> <!-- Link to Summary page -->
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>    
+
+    <div class="main1" id="summary">
+        <h2>Summary</h2>
+        <div class="summary-charts">
+            <!-- Example Pie Chart for Overall Customer Ratings -->
+            <div>
+                <h3 align = center>Overall Customer Ratings</h3>
+                <img src="path/to/pie_chart.png" align = center alt="Pie chart showing overall customer ratings">
+            </div>
+            <!-- Example Bar Chart for Service Requests Summary -->
+            <div>
+                <h3 align = center>Service Requests Summary</h3>
+                <img src="path/to/bar_chart.png" align = center alt="Bar chart showing service requests summary">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
