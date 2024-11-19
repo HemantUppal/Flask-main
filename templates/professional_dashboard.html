@@ -63,10 +63,52 @@
             background-color: #007bff;
             color: white;
         }
+        nav {
+            width: 100%;
+            background: linear-gradient(135deg, #180161,#4f1787, #eb3678, #fb773c);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+        nav h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            flex-grow: 1;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
-
+    <nav>
+        <h1>Welcome Professional</h1>
+        <ul>
+            <li><a href="/professional/dashboard"></a>Home</li>
+            <li><a href="/professional/search">Search</li>
+            <li><a href="/professional/summary">summary</a></li>
+            <li><a href="">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+       </nav><br>
     <!-- Today Services Section -->
     <h2 style="text-align:center;">Today Services</h2>
 

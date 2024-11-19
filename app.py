@@ -240,6 +240,20 @@ def complete_request(request_id,service_id):
         db.session.commit()
     return redirect(url_for("professional_dashboard",service_id=service_id))
 
+@app.route("/professional/summary" )
+@login_required
+def pro_summary():
+    requested=10
+    closed=5
+    signed=2
+    return render_template("professional_summary.html",requested=requested, closed=closed, signed=signed)
+@app.route("/professional/search" , methods = ["GET","POST"])
+@login_required
+def psearch():
+    if request.method == 'POST':
+        return redirect('request_service')
+    
+    return render_template("professional_search.html")
 @app.route("/admin/dashboard")
 @login_required
 def admin_dashboard():

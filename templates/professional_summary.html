@@ -42,30 +42,113 @@ span.main1 {
     top:20%;
     border-radius: 25px;
 }
+canvas {
+    max-width: 800px;
+    margin: 0 auto;
+}
+nav {
+            width: 100%;
+            background: linear-gradient(135deg, #180161,#4f1787, #eb3678, #fb773c);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+        nav h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            flex-grow: 1;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Dashboard</title>
-    <link rel="stylesheet" href="style3.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="head1">
-        <center>Welcome to Professional Dashboard</center>
-    </div>
-    <div class="head2">
-        <a href="pro_dash1.html" style="color:#4f1787;">HOME</a>
-        <a href="pro_dash2.html" style="color:#4f1787;">SEARCH</a>
-        <a href="pro_dash3.html" style="color:#4f1787;">SUMMARY</a>
-        <a href="#4" style="color:#4f1787;">LOGOUT</a>
-    </div>
-    <span style="top:15%; position: fixed;font-size: 2.1vw; margin-left: 150px; ">REVIEWS/RATINGS</span>
+    <nav>
+        <h1>Welcome Professional</h1>
+        <ul>
+            <li><a href="/professional/dashboard"></a>Home</li>
+            <li><a href="/professional/search">Search</li>
+            <li><a href="/professional/summary">summary</a></li>
+            <li><a href="">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+       </nav><br>
+    <span style="top:15%; position: fixed;font-size: 2.1vw; margin-left: 150px; ">Service Requests</span>
     <span class="main1">
 
-    </span>
-    <span style="top:15%; position: fixed;font-size: 2.1vw; margin-left: 1150px; ">SERVICE REQUESTS</span>
-    <span class="main1" style="margin:10px 0px 10px 1150px;">
 
-    </span>
+<!-- Main Content Section -->
+    <main>
+        <h2>Service Requests</h2>
+        <canvas id="serviceChart"></canvas>
+    </main>
+
+        
+
+    <center><script> // Data for the chart
+        const data = {
+            labels: ['Recieved', 'Closed', 'Rejected'],
+            datasets: [{
+                label: 'Service Requests',
+                data: [120, 80, 30], // Example data
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.7)', // Requested (Blue)
+                    'rgba(75, 192, 192, 0.7)', // Closed (Green)
+                    'rgba(255, 99, 132, 0.7)'  // Assigned (Red)
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+        
+        // Configuration
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+        
+        // Render the chart
+        const ctx = document.getElementById('serviceChart').getContext('2d');
+        const serviceChart = new Chart(ctx, config);
+        </script></center>
+
+        </body>
+        </html>
 </body>
 </html>
