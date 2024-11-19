@@ -57,16 +57,51 @@
             background-color: #007bff;
             color: white;
         }
+        nav {
+            width: 100%;
+            background: linear-gradient(135deg, #180161,#4f1787, #eb3678, #fb773c);
+            color:black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+        nav h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            flex-grow: 1;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
 </style>
 <body>
         <a href="/profile" class="button1">{{current_user.name}}</a>
-
-    <ul>
-        <li><a href="#1" class="a1">HOME</a></li>
-        <li><a href="#2" class="a1">SERVICES</a></li>
-        <li><a href="#3" class="a1">SHOPPING</a></li>
-        <li><a href="#5" class="a1">CART</a></li>
-    </ul>
+    <nav>
+            <ul>
+                <li><a href="/customer/dashboard">Home</a></li>
+                <li><a href="/customer/search">Search</li>
+                <li><a href="/customer/summary">summary</a></li>
+                <li><a href="">Logout</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+           </nav><br>
     <div class="main0">
         <h1 style="color: white;">
             WELCOME {{current_user.name}} TO KHHaS SERVICES.
